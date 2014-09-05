@@ -1,0 +1,22 @@
+{
+  "name": "brototype",
+  "version": "0.0.1",
+  "description": "bro, do you even?",
+  "main": "brototype.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/letsgetrandy/brototype.git"
+  },
+  "author": "Randy Hunt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/letsgetrandy/brototype/issues"
+  },
+  "homepage": "https://github.com/letsgetrandy/brototype",
+  "dependencies": {
+    "mocha": "^1.21.4"
+  }
+}

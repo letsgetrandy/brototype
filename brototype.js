@@ -67,5 +67,5 @@
         }
     };
 
-    window.Bro = Bro;
+    exports.Bro = Bro;
 })();
