@@ -1,14 +1,16 @@
 (function() {
     'use strict';
 
-    function Promise(method) {
+    function Promise(object, method, args) {
+        this.object = object;
         this.method = method;
+        this.args = args.length > 1 ? args.slice(1) : [];
     }
 
     Promise.prototype = {
         "butWhenIdo": function(callback) {
             if (this.method instanceof Function) {
-                var returnValue = this.method();
+                var returnValue = this.method.apply(this.object, this.args);
                 callback(returnValue);
             }
         },
@@ -16,7 +18,7 @@
         "hereComeTheErrors": function(callback) {
             if (this.method instanceof Function) {
                 try {
-                    this.method();
+                    this.method.apply(this.object, this.args);
                 } catch(e) {
                     callback(e);
                 }
@@ -75,12 +77,12 @@
 
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);
-            return new Promise(method);
+            return new Promise(this.obj, method, arguments);
         },
 
         "braceYourself": function(methodString) {
             var method = this.iCanHaz(methodString);
-            return new Promise(method);
+            return new Promise(this.obj, method, arguments);
         }
     };
 

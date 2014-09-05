@@ -60,9 +60,11 @@ describe('Bro.iDontAlways', function() {
     var fired,
         success,
         param,
+        context,
         obj = {
             "foo": function() {
                 fired = true;
+                context = this;
                 return 91;
             },
             "bar": 3
@@ -76,6 +78,7 @@ describe('Bro.iDontAlways', function() {
         fired = false;
         success = false;
         param = null;
+        context = null;
     });
 
     it('should check that the requested method is a function', function() {
@@ -96,6 +99,12 @@ describe('Bro.iDontAlways', function() {
         var bro = Bro(obj);
         bro.iDontAlways('foo').butWhenIdo(fn);
         assert.equal(param, 91);
+    });
+
+    it('should apply the object as its own context', function() {
+        var bro = Bro(obj);
+        bro.iDontAlways('foo').butWhenIdo(fn);
+        assert.equal(context, obj);
     });
 });
 
