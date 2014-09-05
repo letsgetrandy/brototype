@@ -37,7 +37,7 @@
     }
 
     Bro.prototype = {
-        "doYouEven": function(key) {
+        "doYouEven": function(key, callback) {
             var props = key.split('.'),
                 item = this.obj;
             for (var i = 0; i < props.length; i++) {
@@ -45,6 +45,9 @@
                 if (typeof item === 'undefined') {
                     return false;
                 }
+            }
+            if (callback) {
+                callback(item);
             }
             return true;
         },

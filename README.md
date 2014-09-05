@@ -41,9 +41,18 @@ Bro(app)
 
 Well, now you can!
 
+## Features
+
 ### Testing nested members
 ```
 if(Bro(object).doYouEven('lift')) {}
+```
+Or, just use a callback...
+```
+Bro(object)
+    .doYouEven('property.subproperty', function(subproperty) {
+        console.log(subproperty);
+    });
 ```
 
 ### Fetching nested members
