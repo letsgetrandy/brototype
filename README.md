@@ -32,12 +32,44 @@ if (Bro(app).doYouEven('config.environment.buildURL')) {
 Or better yet, how about:
 ```
 var myURL;
-Bro(app).iDontAlways('config.environment.buildURL').butWhenIdo(function(val){
-   myURL = val;
-});
+Bro(app)
+    .iDontAlways('config.environment.buildURL')
+    .butWhenIdo(function(val){
+        myURL = val;
+    });
 ```
 
 Well, now you can!
+
+### Testing nested members
+```
+if(Bro(object).doYouEven('lift')) {}
+```
+
+### Fetching nested members
+```
+var value = Bro(object).iCanHaz('cheezeburger');
+```
+
+### Calling nested functions
+```
+Bro(object)
+    .iDontAlways('method')
+    .butWhenIdo(function(returnVal) {
+        ...
+    });
+```
+
+### Handling exceptions
+```
+Bro(object)
+    .braceYourself('method.name')
+    .hereComeTheErrors(function(e) {
+        console.log('error ' + e + ' happened.');
+    });
+```
+
+###
 
 
 ## Tests

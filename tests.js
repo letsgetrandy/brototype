@@ -59,19 +59,23 @@ describe('Bro.allTheThings', function() {
 describe('Bro.iDontAlways', function() {
     var fired,
         success,
+        param,
         obj = {
             "foo": function() {
                 fired = true;
+                return 91;
             },
             "bar": 3
         },
-        fn = function() {
+        fn = function(p) {
             success = true;
+            param = p;
         };
 
     beforeEach(function() {
         fired = false;
         success = false;
+        param = null;
     });
 
     it('should check that the requested method is a function', function() {
@@ -86,5 +90,42 @@ describe('Bro.iDontAlways', function() {
         var bro = Bro(obj);
         bro.iDontAlways('foo').butWhenIdo(fn);
         assert.equal(fired, true);
+    });
+
+    it('should pass the method\'s return value as param to callback', function() {
+        var bro = Bro(obj);
+        bro.iDontAlways('foo').butWhenIdo(fn);
+        assert.equal(param, 91);
+    });
+});
+
+describe('Bro.braceYourself', function() {
+    var success,
+        error,
+        obj = {
+            "foo": function() {
+                throw 'an error';
+            }
+        },
+        fn = function(e) {
+            success = true;
+            error = e;
+        };
+
+    beforeEach(function() {
+        success = null;
+        error = null;
+    });
+
+    it('should fire the callback when an exception is thrown', function() {
+        var bro = Bro(obj);
+        bro.braceYourself('foo').hereComeTheErrors(fn);
+        assert.equal(success, true);
+    });
+
+    it('should pass the error to the callback', function() {
+        var bro = Bro(obj);
+        bro.braceYourself('foo').hereComeTheErrors(fn);
+        assert.equal(error, 'an error');
     });
 });

@@ -8,8 +8,20 @@
     Promise.prototype = {
         "butWhenIdo": function(callback) {
             if (this.method instanceof Function) {
-                this.method();
-                callback();
+                var returnValue = this.method();
+                callback(returnValue);
+            }
+        },
+
+        "hereComeTheErrors": function(callback) {
+            if (this.method instanceof Function) {
+                try {
+                    this.method();
+                } catch(e) {
+                    callback(e);
+                }
+            } else {
+                callback(this.method + ' is not a function.');
             }
         }
     };
@@ -62,6 +74,11 @@
         },
 
         "iDontAlways": function(methodString) {
+            var method = this.iCanHaz(methodString);
+            return new Promise(method);
+        },
+
+        "braceYourself": function(methodString) {
             var method = this.iCanHaz(methodString);
             return new Promise(method);
         }
