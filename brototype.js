@@ -1,18 +1,21 @@
 (function() {
     'use strict';
 
-    function Promise(object, method, args) {
+    function Bromise(object, method, args) {
         this.object = object;
         this.method = method;
         this.args = args.length > 1 ? args.slice(1) : [];
     }
 
-    Promise.prototype = {
-        "butWhenIdo": function(callback) {
+    Bromise.prototype = {
+        "butWhenIdo": function(callback, context) {
             if (this.method instanceof Function) {
                 var returnValue = this.method.apply(this.object, this.args);
-                callback(returnValue);
+                if (returnValue) {
+                    (callback || function(){}).call(context || this.object, returnValue);
+                }
             }
+            return context;
         },
 
         "hereComeTheErrors": function(callback) {
@@ -36,20 +39,47 @@
         }
     }
 
+    Bro.TOTALLY = true;
+    Bro.NOWAY = false;
+
     Bro.prototype = {
-        "doYouEven": function(key, callback) {
+        "isThatEvenAthing": function() {
+            return typeof this.obj !== 'undefined';
+        },
+
+        "doYouEven": function(key, options) {
+            var optionsBro = Bro(options || {}),
+                bro = this.iCanHaz(key);
+            if (Bro(bro).isThatEvenAthing() === Bro.TOTALLY) {
+                optionsBro.iDontAlways('forSure').butWhenIdo();
+                return Bro.TOTALLY;
+            } else {
+                optionsBro.iDontAlways('sorryBro').butWhenIdo();
+                return Bro.NOWAY;
+            }
+        },
+
+        "iCanHaz": function(key) {
             var props = key.split('.'),
                 item = this.obj;
             for (var i = 0; i < props.length; i++) {
                 item = item[props[i]];
-                if (typeof item === 'undefined') {
-                    return false;
+                if (Bro(item).isThatEvenAthing() === Bro.NOWAY) {
+                    return item;
                 }
             }
-            if (callback) {
-                callback(item);
+            return item;
+        },
+
+        "comeAtMe": function(brobject) {
+            var i, prop,
+                bro = Bro(brobject),
+                keys = bro.allTheThings(),
+                obj = (this instanceof Bro) ? this.obj : Bro.prototype;
+            for (i = 0; i < keys.length; i++) {
+                prop = keys[i];
+                obj[prop] = brobject[prop];
             }
-            return true;
         },
 
         "allTheThings": function() {
@@ -65,27 +95,14 @@
             return props;
         },
 
-        "iCanHaz": function(key) {
-            if (this.doYouEven(key)) {
-                var props = key.split('.'),
-                    item = this.obj;
-                for (var i = 0; i < props.length; i++) {
-                    item = item[props[i]];
-                }
-                return item;
-            } else {
-                return undefined;
-            }
-        },
-
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);
-            return new Promise(this.obj, method, arguments);
+            return new Bromise(this.obj, method, arguments);
         },
 
         "braceYourself": function(methodString) {
             var method = this.iCanHaz(methodString);
-            return new Promise(this.obj, method, arguments);
+            return new Bromise(this.obj, method, arguments);
         }
     };
 
