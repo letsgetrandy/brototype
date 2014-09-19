@@ -78,7 +78,22 @@ Bro(object)
     });
 ```
 
-###
+### Extending objects
+```
+var obj1 = {foo: 'boo', bar: 'bar'},
+    obj2 = {foo: 'bar', yes: 'no'};
+Bro(obj1).comeAtMe(obj2);
+
+// now obj1.foo == 'bar' and obj1.yes == 'no'
+```
+
+### Extending Brototype!
+Yes, extend me, Bro!
+
+```
+var plugin = { foo: function() { whatever; }};
+Bro.prototype.comeAtMe(plugin);
+```
 
 
 ## Tests
