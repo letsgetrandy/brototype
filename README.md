@@ -78,6 +78,18 @@ Bro(object)
     });
 ```
 
+### Check for undefined
+```
+if (Bro(someVar).isThatEvenAthing() === Bro.TOTALLY) {
+    // do stuff
+}
+```
+
+### Get a sorted list of object keys
+```
+var keys = Bro(object).allTheThings();
+```
+
 ### Extending objects
 ```
 var obj1 = {foo: 'boo', bar: 'bar'},

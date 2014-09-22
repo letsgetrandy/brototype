@@ -47,7 +47,7 @@
 
     Bro.prototype = {
         "isThatEvenAthing": function() {
-            return typeof this.obj !== 'undefined';
+            return this.obj !== void 0;
         },
 
         "doYouEven": function(key, options) {
