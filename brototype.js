@@ -28,6 +28,9 @@
             } else {
                 callback(this.method + ' is not a function.');
             }
+        },
+        "errorsAreComing": function () {
+            this.hereComeTheErrors.apply(this, arguments);
         }
     };
 
