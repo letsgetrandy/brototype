@@ -83,16 +83,17 @@
         },
 
         "allTheThings": function() {
-            if (Object.keys) {
-                return Object.keys(this.obj);
-            }
             var key, props = [];
-            for (key in this.obj) {
-                if (this.obj.hasOwnProperty(key)) {
-                    props.push(key);
+            if (Object.keys) {
+                props = Object.keys(this.obj);
+            } else {
+                for (key in this.obj) {
+                    if (this.obj.hasOwnProperty(key)) {
+                        props.push(key);
+                    }
                 }
             }
-            return props;
+            return props.sort();
         },
 
         "iDontAlways": function(methodString) {

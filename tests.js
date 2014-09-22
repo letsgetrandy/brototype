@@ -54,6 +54,13 @@ describe('Bro.allTheThings', function() {
         assert.notEqual(keys.indexOf('foo'), -1);
         assert.notEqual(keys.indexOf('bar'), -1);
     });
+
+    it('should return the keys in order', function () {
+        var a = { 'z': 1, 'y': 2, 'x': 3 },
+            keys = Bro(a).allTheThings();
+        assert.equal(keys[0], 'x');
+        assert.equal(keys[keys.length - 1], 'z');
+    });
 });
 
 describe('Bro.iDontAlways', function() {
