@@ -1,6 +1,7 @@
 (function() {
     'use strict';
 
+    // Bromise... it's stronger than a Promise
     function Bromise(object, method, args) {
         this.object = object;
         this.method = method;

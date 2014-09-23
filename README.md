@@ -119,6 +119,12 @@ $ npm install brototype
 $ bower install brototype
 ```
 
+## Do you use Brototype?
+Are you using Brototype in the wild?
+If so, [tell the world](https://github.com/letsgetrandy/brototype/issues/10)!
+
+Also, don't forget to follow [@BrototypeJS](https://twitter.com/Brototypejs) on Twitter!
+
 ## Tests
 
 `npm test` to run tests.
