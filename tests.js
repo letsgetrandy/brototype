@@ -41,6 +41,15 @@ describe('Bro.iCanHaz', function() {
             bro = Bro(a);
         assert.equal(bro.iCanHaz('b.c.d'), undefined);
     });
+
+    it('should return an array when an array is requested', function() {
+        var a = {a: 'foo', b: 'bar', c: 'fred'},
+            values = Bro(a).iCanHaz(['a', 'b', 'c', 'd']);
+
+        assert.notEqual(values.indexOf('foo'), -1);
+        assert.notEqual(values.indexOf('bar'), -1);
+        assert.notEqual(values.indexOf('fred'), -1);
+    });
 });
 
 describe('Bro.allTheThings', function() {

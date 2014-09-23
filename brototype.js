@@ -65,6 +65,15 @@
         },
 
         "iCanHaz": function(key) {
+            if (Array.isArray(key)) {
+                var index, value, result = [];
+                for (index in key) {
+                    if (value = this.iCanHaz(key[index])) {
+                        result.push(value);
+                    }
+                }
+                return result;
+            }
             var props = key.split('.'),
                 item = this.obj;
             for (var i = 0; i < props.length; i++) {
