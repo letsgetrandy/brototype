@@ -1,7 +1,7 @@
 brototype
 =========
 
-Bro, do you even write javascript?
+Bro, do you even javascript?
 
 ## Features
 
