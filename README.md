@@ -12,7 +12,7 @@ which leads to one of our favorite javascript errors...
 `error: undefined is not a function`
 
 And the solution only makes the code base ugly:
-```
+```js
 var myURL;
 if (app && app.config && app.config.environment && app.config.environment.buildURL) {
     myURL = app.config.environment.buildURL('dev');
@@ -22,7 +22,7 @@ if (app && app.config && app.config.environment && app.config.environment.buildU
 We all hate that, don't we?
 
 So what if you could just type:
-```
+```js
 var myURL;
 if (Bro(app).doYouEven('config.environment.buildURL')) {
     myURL = app.config.environment.buildURL('dev');
@@ -30,7 +30,7 @@ if (Bro(app).doYouEven('config.environment.buildURL')) {
 ```
 
 Or better yet, how about:
-```
+```js
 var myURL;
 Bro(app)
     .iDontAlways('config.environment.buildURL')
@@ -44,11 +44,12 @@ Well, now you can!
 ## Features
 
 ### Testing nested members
-```
+```js
 if(Bro(object).doYouEven('lift')) {}
 ```
+
 Or, just use a callback...
-```
+```js
 Bro(object)
     .doYouEven('property.subproperty', function(subproperty) {
         console.log(subproperty);
@@ -56,12 +57,12 @@ Bro(object)
 ```
 
 ### Fetching nested members
-```
+```js
 var value = Bro(object).iCanHaz('cheezeburger');
 ```
 
 ### Calling nested functions
-```
+```js
 Bro(object)
     .iDontAlways('method')
     .butWhenIdo(function(returnVal) {
@@ -70,7 +71,7 @@ Bro(object)
 ```
 
 ### Handling exceptions
-```
+```js
 Bro(object)
     .braceYourself('method.name')
     .hereComeTheErrors(function(e) {
@@ -79,19 +80,19 @@ Bro(object)
 ```
 
 ### Check for undefined
-```
+```js
 if (Bro(someVar).isThatEvenAthing() === Bro.TOTALLY) {
     // do stuff
 }
 ```
 
 ### Get a sorted list of object keys
-```
+```js
 var keys = Bro(object).allTheThings();
 ```
 
 ### Extending objects
-```
+```js
 var obj1 = {foo: 'boo', bar: 'bar'},
     obj2 = {foo: 'bar', yes: 'no'};
 Bro(obj1).comeAtMe(obj2);
@@ -102,7 +103,7 @@ Bro(obj1).comeAtMe(obj2);
 ### Extending Brototype!
 Yes, extend me, Bro!
 
-```
+```js
 var plugin = { foo: function() { whatever; }};
 Bro.prototype.comeAtMe(plugin);
 ```
