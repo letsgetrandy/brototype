@@ -7,7 +7,7 @@
         this.args = args.length > 1 ? args.slice(1) : [];
     }
 
-    Bromise.prototype = {
+    Bromise.brototype = Bromise.prototype = {
         "butWhenIdo": function(callback, context) {
             if (this.method instanceof Function) {
                 var returnValue = this.method.apply(this.object, this.args);
@@ -45,7 +45,7 @@
     Bro.TOTALLY = true;
     Bro.NOWAY = false;
 
-    Bro.prototype = {
+    Bro.brototype = Bro.prototype = {
         "isThatEvenAthing": function() {
             return this.obj !== void 0;
         },
