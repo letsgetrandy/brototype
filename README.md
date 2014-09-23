@@ -58,7 +58,11 @@ Bro(object)
 
 ### Fetching nested members
 ```js
+// get a value if it exists
 var value = Bro(object).iCanHaz('cheezeburger');
+
+// get an array of values for paths that exist
+var values = Bro(object).iCanHaz(['cheezeburger', 'money', 'beer']);
 ```
 
 ### Calling nested functions
