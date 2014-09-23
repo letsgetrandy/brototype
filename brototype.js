@@ -1,4 +1,4 @@
-/*global exports:true, module:true, window:true*/
+/*global exports:true, module:true, window:true, require:false, define:false*/
 (function() {
     'use strict';
 
@@ -112,13 +112,18 @@
         }
     };
 
-    if (exports) {
+    if (Bro(exports).isThatEvenAthing() === Bro.TOTALLY) {
         exports.Bro = Bro;
     }
-    else if (module) {
+    else if (Bro(module).isThatEvenAthing() === Bro.TOTALLY) {
         module.exports = Bro;
     }
-    else if (window) {
+    else if (Bro(require).isThatEvenAthing() === Bro.TOTALLY) {
+        define([], function() {
+            return Bro;
+        });
+    }
+    else if (Bro(window).isThatEvenAthing() === Bro.TOTALLY) {
         window.Bro = Bro;
     }
 })();
