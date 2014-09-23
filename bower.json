@@ -1,0 +1,25 @@
+{
+  "name": "brototype",
+  "main": "brototype.js",
+  "version": "0.0.1",
+  "homepage": "http://brototypejs.com/",
+  "authors": [
+    "Randy Hunt <letsgetrandy@gmail.com>"
+  ],
+  "description": "Bro, do you even code javascript?",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "brototype",
+    "bro"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

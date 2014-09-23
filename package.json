@@ -4,7 +4,7 @@
   "description": "bro, do you even?",
   "main": "brototype.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha tests.js"
+    "test": "mocha tests.js"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,9 @@
   "bugs": {
     "url": "https://github.com/letsgetrandy/brototype/issues"
   },
-  "homepage": "https://github.com/letsgetrandy/brototype",
-  "dependencies": {
-    "mocha": "^1.21.4"
+  "homepage": "http://brototypejs.com",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.21.4"
   }
 }
