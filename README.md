@@ -1,7 +1,7 @@
 brototype
 =========
 
-Bro, do you even write javascript?
+Bro, do you even javascript?
 
 ## Features
 
@@ -77,6 +77,12 @@ Bro(object)
     .hereComeTheErrors(function(e) {
         console.log('error ' + e + ' happened.');
     });
+```
+
+### Bro-oleans
+```js
+Bro.TOTALLY // true;
+Bro.NOWAY   // false;
 ```
 
 ### Check for undefined
