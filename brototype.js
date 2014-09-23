@@ -1,3 +1,4 @@
+/*global exports:true, module:true, window:true*/
 (function() {
     'use strict';
 
@@ -111,5 +112,13 @@
         }
     };
 
-    module.exports = Bro;
+    if (exports) {
+        exports.Bro = Bro;
+    }
+    else if (module) {
+        module.exports = Bro;
+    }
+    else if (window) {
+        window.Bro = Bro;
+    }
 })();
