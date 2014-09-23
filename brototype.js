@@ -110,5 +110,5 @@
         }
     };
 
-    exports.Bro = Bro;
+    module.exports = Bro;
 })();
