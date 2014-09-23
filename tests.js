@@ -145,3 +145,9 @@ describe('Bro.braceYourself', function() {
         assert.equal(error, 'an error');
     });
 });
+
+describe('brototype alias', function(){
+  it('kind of basically works', function(){
+    assert.notEqual(Bro.brototype.doYouEven, undefined);
+  });
+});
