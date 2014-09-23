@@ -109,6 +109,16 @@ Bro.prototype.comeAtMe(plugin);
 ```
 
 
+## Installing
+brototype is available via npm or bower
+```bash
+# via npm
+$ npm install brototype
+
+# via bower
+$ bower install brototype
+```
+
 ## Tests
 
 `npm test` to run tests.
