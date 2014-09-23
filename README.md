@@ -79,6 +79,12 @@ Bro(object)
     });
 ```
 
+### Bro-oleans
+```js
+Bro.TOTALLY // true;
+Bro.NOWAY   // false;
+```
+
 ### Check for undefined
 ```js
 if (Bro(someVar).isThatEvenAthing() === Bro.TOTALLY) {
