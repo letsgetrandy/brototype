@@ -1,7 +1,7 @@
 {
   "name": "brototype",
-  "version": "0.0.1",
-  "description": "bro, do you even?",
+  "version": "0.0.2",
+  "description": "Bro, do you even Javascript?",
   "main": "brototype.js",
   "scripts": {
     "test": "mocha tests.js"

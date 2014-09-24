@@ -1,12 +1,12 @@
 {
   "name": "brototype",
   "main": "brototype.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "http://brototypejs.com/",
   "authors": [
     "Randy Hunt <letsgetrandy@gmail.com>"
   ],
-  "description": "Bro, do you even code javascript?",
+  "description": "Bro, do you even Javascript?",
   "moduleType": [
     "amd"
   ],
