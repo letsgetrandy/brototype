@@ -52,23 +52,16 @@ describe('Bro.iCanHaz', function() {
     });
 });
 
-describe('Bro.allTheThings', function() {
+describe('Bro.giveMeProps', function() {
     it('should return an object\'s keys', function() {
         var a = {
                 "foo": 1,
                 "bar": 2
             },
-            keys = Bro(a).allTheThings();
+            keys = Bro(a).giveMeProps();
         assert.equal(keys.length, 2);
         assert.notEqual(keys.indexOf('foo'), -1);
         assert.notEqual(keys.indexOf('bar'), -1);
-    });
-
-    it('should return the keys in order', function () {
-        var a = { 'z': 1, 'y': 2, 'x': 3 },
-            keys = Bro(a).allTheThings();
-        assert.equal(keys[0], 'x');
-        assert.equal(keys[keys.length - 1], 'z');
     });
 });
 
