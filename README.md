@@ -91,7 +91,7 @@ Bro.NOWAY   // false;
 
 ### Check for undefined
 ```js
-if (Bro(someVar).isThatEvenAthing() === Bro.TOTALLY) {
+if (Bro(someVar).isThatEvenAThing() === Bro.TOTALLY) {
     // do stuff
 }
 ```
