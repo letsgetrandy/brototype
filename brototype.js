@@ -121,18 +121,28 @@
         }
     };
 
-    if (Bro(exports).isThatEvenAThing() === Bro.TOTALLY) {
-        exports.Bro = Bro;
-    }
-    else if (Bro(module).isThatEvenAThing() === Bro.TOTALLY) {
-        module.exports = Bro;
-    }
-    else if (Bro(require).isThatEvenAThing() === Bro.TOTALLY) {
-        define([], function() {
-            return Bro;
-        });
-    }
-    else if (Bro(window).isThatEvenAThing() === Bro.TOTALLY) {
-        window.Bro = Bro;
-    }
+    try {
+        if (exports) {
+            exports.Bro = Bro;
+            return;
+        }
+    } catch(e) {}
+    try {
+        if (module) {
+            module.exports = Bro;
+            return;
+        }
+    } catch(e) {}
+    try {
+        if (require) {
+            define([], function() {return Bro;});
+            return;
+        }
+    } catch(e) {}
+    try {
+        if (window) {
+            window.Bro = Bro;
+            return;
+        }
+    } catch(e) {}
 })();
