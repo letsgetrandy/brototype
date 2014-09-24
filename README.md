@@ -96,7 +96,7 @@ if (Bro(someVar).isThatEvenAThing() === Bro.TOTALLY) {
 }
 ```
 
-### Get a sorted list of object keys
+### Get a list of object keys
 ```js
 var keys = Bro(object).giveMeProps();
 ```
