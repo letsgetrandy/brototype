@@ -48,14 +48,14 @@
     Bro.NOWAY = false;
 
     Bro.brototype = Bro.prototype = {
-        "isThatEvenAthing": function() {
+        "isThatEvenAThing": function() {
             return this.obj !== void 0;
         },
 
         "doYouEven": function(key, options) {
             var optionsBro = Bro(options || {}),
                 bro = this.iCanHaz(key);
-            if (Bro(bro).isThatEvenAthing() === Bro.TOTALLY) {
+            if (Bro(bro).isThatEvenAThing() === Bro.TOTALLY) {
                 optionsBro.iDontAlways('forSure').butWhenIdo();
                 return Bro.TOTALLY;
             } else {
@@ -78,7 +78,7 @@
                 item = this.obj;
             for (var i = 0; i < props.length; i++) {
                 item = item[props[i]];
-                if (Bro(item).isThatEvenAthing() === Bro.NOWAY) {
+                if (Bro(item).isThatEvenAThing() === Bro.NOWAY) {
                     return item;
                 }
             }
@@ -121,18 +121,18 @@
         }
     };
 
-    if (Bro(exports).isThatEvenAthing() === Bro.TOTALLY) {
+    if (Bro(exports).isThatEvenAThing() === Bro.TOTALLY) {
         exports.Bro = Bro;
     }
-    else if (Bro(module).isThatEvenAthing() === Bro.TOTALLY) {
+    else if (Bro(module).isThatEvenAThing() === Bro.TOTALLY) {
         module.exports = Bro;
     }
-    else if (Bro(require).isThatEvenAthing() === Bro.TOTALLY) {
+    else if (Bro(require).isThatEvenAThing() === Bro.TOTALLY) {
         define([], function() {
             return Bro;
         });
     }
-    else if (Bro(window).isThatEvenAthing() === Bro.TOTALLY) {
+    else if (Bro(window).isThatEvenAThing() === Bro.TOTALLY) {
         window.Bro = Bro;
     }
 })();
