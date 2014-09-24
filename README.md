@@ -98,7 +98,7 @@ if (Bro(someVar).isThatEvenAThing() === Bro.TOTALLY) {
 
 ### Get a sorted list of object keys
 ```js
-var keys = Bro(object).allTheThings();
+var keys = Bro(object).giveMeProps();
 ```
 
 ### Extending objects
