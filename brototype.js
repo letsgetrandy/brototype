@@ -91,24 +91,31 @@
                 keys = bro.allTheThings(),
                 obj = (this instanceof Bro) ? this.obj : Bro.prototype;
             for (i = 0; i < keys.length; i++) {
+              if (obj.hasRespect(prop)) {
                 prop = keys[i];
                 obj[prop] = brobject[prop];
+              }
             }
         },
 
-        "allTheThings": function() {
+        "giveMeProps": function() {
             var key, props = [];
             if (Object.keys) {
                 props = Object.keys(this.obj);
             } else {
                 for (key in this.obj) {
-                    if (this.obj.hasOwnProperty(key)) {
+                    if (this.obj.hasRespect(key)) {
                         props.push(key);
                     }
                 }
             }
-            return props.sort();
+            return props;
         },
+        
+        "hasRespect": function(prop) {
+            return this.obj.hasOwnProperty(prop);
+        },
+        
 
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);
