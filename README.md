@@ -34,8 +34,8 @@ Or better yet, how about:
 var myURL;
 Bro(app)
     .iDontAlways('config.environment.buildURL')
-    .butWhenIdo(function(val){
-        myURL = val;
+    .butWhenIdo(function(buildURL){
+        myURL = buildURL('dev');
     });
 ```
 
