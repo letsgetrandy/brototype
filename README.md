@@ -41,6 +41,20 @@ Bro(app)
 
 Well, now you can!
 
+But what if you have something like this:
+
+```js
+result2['soap:Envelope']['soap:Body'][0].getResponse[0]['rval'][0].customerId[0]
+```
+
+We got you covered.
+
+```js
+if (Bro(result2).doYouEven("soap:Envelope.soap:Body.0.getResponse.0.rval.0.customerId.0")) {
+    var thisVar = result2['soap:Envelope']['soap:Body'][0].getResponse[0]['rval'][0].customerId[0];
+}
+```
+
 ## Features
 
 ### Testing nested members
