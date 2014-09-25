@@ -45,7 +45,9 @@ Well, now you can!
 
 ### Testing nested members
 ```js
-if(Bro(object).doYouEven('lift')) {}
+if(Bro(object).doYouEven('lift') === Bro.TOTALLY) {
+    console.log(object.lift);
+}
 ```
 
 Or, just use a callback...
@@ -70,7 +72,7 @@ var values = Bro(object).iCanHaz(['cheezeburger', 'money', 'beer']);
 Bro(object)
     .iDontAlways('method')
     .butWhenIdo(function(returnVal) {
-        ...
+        console.log('object.method() returned ', returnVal);
     });
 ```
 
@@ -98,7 +100,9 @@ if (Bro(someVar).isThatEvenAThing() === Bro.TOTALLY) {
 
 ### Get a list of object keys
 ```js
-var keys = Bro(object).giveMeProps();
+var object = {foo: 1, bar: 2};
+Bro(object).giveMeProps();
+// returns ['foo', 'bar'];
 ```
 
 ### Extending objects
@@ -129,8 +133,22 @@ $ npm install brototype
 $ bower install brototype
 ```
 
-## Brotie
-For the brofessional: want to use brototype.js but it's too bro for work? Just give it the [Brotie](http://brotie.jdauriemma.com) treatment so you can bro down at the office!  Alias some or all of the names to make your boss happy.
+## Contributing
+Brototype.js may be funny, but it is also quite useful, as demonstrated by the
+number of people who have already installed it via
+[npm](https://www.npmjs.org/package/brototype).
+
+Therefore, there is some responsibility to add/update the library responsibly.
+Please have a look at the
+[guidelines for contributing to Brototype](https://github.com/letsgetrandy/brototype/wiki/Contributing)
+before submitting your pull request.
+
+
+## Bro-tie
+For the brofessional. Want to use Brototype.js but it's too bro for your work
+environment? Just give it the [Bro-tie](http://brotie.jdauriemma.com) treatment
+so you can bro down at the office!
+Alias some or all of the names to make your boss happy.
 
 ## Do you use Brototype?
 Are you using Brototype in the wild?
@@ -138,9 +156,6 @@ If so, [tell the world](https://github.com/letsgetrandy/brototype/issues/10)!
 
 Also, don't forget to follow [@BrototypeJS](https://twitter.com/Brototypejs) on Twitter!
 
-## Tests
-
-`npm test` to run tests.
 
 ## Author
 
