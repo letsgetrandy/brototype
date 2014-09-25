@@ -137,7 +137,6 @@
             return this.obj.hasOwnProperty(prop);
         },
 
-
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);
             return new Bromise(this.obj, method, arguments);
