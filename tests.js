@@ -29,6 +29,44 @@ describe('Bro.doYouEven', function() {
     });
 });
 
+describe('Bro.haveYouMet', function() {
+    it('should be defined', function() {
+        var a = {},
+            bro = Bro(a);
+        assert.notEqual(bro.haveYouMet, undefined);
+    });
+
+    it('should set new property and return true for defined properties', function() {
+        var a = {foo: 'bar', ted: 'the architect'},
+            bro = Bro(a);
+        assert.equal(bro.haveYouMet('ted', 'the father'), true);
+        assert.equal(a.ted, 'the father');
+    });
+
+    it('should set new property and return true for nested defined properties', function() {
+        var a = {ted: {mosby: 'the professor'}, barney: 'stinson'},
+            bro = Bro(a);
+        assert.equal(bro.haveYouMet('ted.mosby', 'the architect'), true);
+        assert.equal(a.ted.mosby, 'the architect');
+        assert.equal(a.barney, 'stinson');
+    });
+
+    it('should set new property and return false for undefined properties', function() {
+        var a = {foo: 'bar'},
+            bro = Bro(a);
+        assert.equal(bro.haveYouMet('ted', 'that dude'), false);
+        assert.equal(a.ted, 'that dude');
+        assert.equal(a.foo, 'bar');
+    });
+
+    it('should set new property and return false for nested undefined properties', function() {
+        var a = {foo: 'bar'},
+            bro = Bro(a);
+        assert.equal(bro.haveYouMet('ted.mosby', 'that dude'), false);
+        assert.equal(a.ted.mosby, 'that dude');
+    });
+});
+
 describe('Bro.iCanHaz', function() {
     it('should return the value of the deep property', function() {
         var a = {b: {c: {d: 32}}},
