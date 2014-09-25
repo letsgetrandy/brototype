@@ -67,6 +67,43 @@ describe('Bro.haveYouMet', function() {
     });
 });
 
+describe('Bro.haveYouTried', function() {
+    it('should be defined', function() {
+        var a = {},
+            bro = Bro(a);
+        assert.notEqual(bro.haveYouTried, undefined);
+    });
+
+    it('should set new property and return true for defined functions', function() {
+        var a = {suitUp: 'do nothing'},
+            bro = Bro(a);
+        assert.equal(bro.haveYouTried('suitUp', function(){ return 'suited up'; }), true);
+        assert.equal(a.suitUp(), 'suited up');
+    });
+
+    it('should set new property and return true for nested defined functions', function() {
+        var a = {suit: {up: 'do nothing'}, lasertag: 'lasertag' },
+            bro = Bro(a);
+        assert.equal(bro.haveYouTried('suit.up', function(){ return 'suited up'; }), true);
+        assert.equal(a.suit.up(), 'suited up');
+        assert.equal(a.lasertag, 'lasertag');
+    });
+
+    it('should set new property and return false for undefinedfunctions', function() {
+        var a = {},
+            bro = Bro(a);
+        assert.equal(bro.haveYouTried('suitUp', function(){ return 'suited up'; }), false);
+        assert.equal(a.suitUp(), 'suited up');
+    });
+
+    it('should set new property and return false for nested undefined functions', function() {
+        var a = {},
+            bro = Bro(a);
+        assert.equal(bro.haveYouTried('suit.up', function(){ return 'suited up'; }), false);
+        assert.equal(a.suit.up(), 'suited up');
+    });
+});
+
 describe('Bro.iCanHaz', function() {
     it('should return the value of the deep property', function() {
         var a = {b: {c: {d: 32}}},

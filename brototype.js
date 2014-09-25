@@ -64,7 +64,7 @@
             }
         },
 
-        "haveYouMet": function(key, value){
+        "haveYouMet": function(key, value) {
             var props = key.split('.');
             var item = this.obj;
             for(var i = 0; i < props.length; i++){
@@ -79,6 +79,10 @@
                 }
                 item = item[prop];
             }
+        },
+
+        "haveYouTried": function(key, value) {
+            return this.haveYouMet(key, value);
         },
 
         "iCanHaz": function(key) {
