@@ -130,7 +130,7 @@ $ bower install brototype
 ```
 
 ## Brotie
-For the brofessional: want to use brototype.js but it's too bro for work? Just give it the [Brotie](http://brotie.jdauriemma.com) treatment so you can bro down at the office!
+For the brofessional: want to use brototype.js but it's too bro for work? Just give it the [Brotie](http://brotie.jdauriemma.com) treatment so you can bro down at the office!  Alias some or all of the names to make your boss happy.
 
 ## Do you use Brototype?
 Are you using Brototype in the wild?
