@@ -129,6 +129,9 @@ $ npm install brototype
 $ bower install brototype
 ```
 
+## Brotie
+For the brofessional: want to use brototype.js but it's too bro for work? Just give it the [Brotie](http://brotie.jdauriemma.com) treatment so you can bro down at the office!
+
 ## Do you use Brototype?
 Are you using Brototype in the wild?
 If so, [tell the world](https://github.com/letsgetrandy/brototype/issues/10)!
