@@ -88,7 +88,7 @@
         "comeAtMe": function(brobject) {
             var i, prop,
                 bro = Bro(brobject),
-                keys = bro.allTheThings(),
+                keys = bro.giveMeProps(),
                 obj = (this instanceof Bro) ? this.obj : Bro.prototype;
             for (i = 0; i < keys.length; i++) {
               if (obj.hasRespect(prop)) {
