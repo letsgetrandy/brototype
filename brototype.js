@@ -91,10 +91,10 @@
                 keys = bro.giveMeProps(),
                 obj = (this instanceof Bro) ? this.obj : Bro.prototype;
             for (i = 0; i < keys.length; i++) {
-              if (obj.hasRespect(prop)) {
                 prop = keys[i];
-                obj[prop] = brobject[prop];
-              }
+                if (bro.hasRespect(prop)) {
+                    obj[prop] = brobject[prop];
+                }
             }
         },
 

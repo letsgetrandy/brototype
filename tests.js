@@ -65,6 +65,22 @@ describe('Bro.giveMeProps', function() {
     });
 });
 
+describe('Bro.comeAtMe', function() {
+    it('should extend first object with second object', function() {
+        var a = {
+                "foo": 1,
+                "bar": 2
+            },b = {
+                "bar": 3,
+                "baz": function(){return false;}
+            };
+            Bro(a).comeAtMe(b);
+        assert.equal(a.foo, 1);
+        assert.equal(a.bar, 3);
+        assert.equal(a.baz(), false);
+    });
+});
+
 describe('Bro.iDontAlways', function() {
     var fired,
         success,
