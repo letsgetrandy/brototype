@@ -64,6 +64,27 @@
             }
         },
 
+        "haveYouMet": function(key, value) {
+            var props = key.split('.');
+            var item = this.obj;
+            for(var i = 0; i < props.length; i++){
+                var prop = props[i];
+                if (i === props.length-1) {
+                    var haveMet = Bro(item[prop]).isThatEvenAThing();
+                    item[prop] = value;
+                    return haveMet;
+                }
+                else if (Bro(item[prop]).isThatEvenAThing() === Bro.NOWAY) {
+                    item[prop] = {};
+                }
+                item = item[prop];
+            }
+        },
+
+        "haveYouTried": function(key, value) {
+            return this.haveYouMet(key, value);
+        },
+
         "iCanHaz": function(key) {
             if (Array.isArray(key)) {
                 var index, value, result = [];
@@ -111,11 +132,10 @@
             }
             return props;
         },
-        
+
         "hasRespect": function(prop) {
             return this.obj.hasOwnProperty(prop);
         },
-        
 
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);

@@ -83,6 +83,19 @@ var value = Bro(object).iCanHaz('cheezeburger');
 var values = Bro(object).iCanHaz(['cheezeburger', 'money', 'beer']);
 ```
 
+### Setting nested members
+```js
+// set a value
+// overwrite and return true if it exists
+// otherwise, set and return false
+var haveMet = Bro(object).haveYouMet('ted.mosby', 'The Architect');
+```
+
+Or, use another alias for setting functions
+```js
+var haveTried = Bro(object).haveYouTried('suit.up', function(){ return 'suited up'; });
+```
+
 ### Calling nested functions
 ```js
 Bro(object)
