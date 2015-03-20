@@ -164,6 +164,18 @@ describe('Bro.braceYourself', function() {
     });
 });
 
+describe('Bro.makeItHappen', function() {
+    var success,
+        expected = { "foo": "bar", "stuff": { "and": { "things": {} } } },
+        obj = {
+            "foo": "bar"
+        };
+    it('should add properties to object, in a nested fashion', function() {
+        var bro = Bro(obj);
+        bro.makeItHappen('stuff.and.things');
+    });
+});
+
 describe('brototype alias', function(){
   it('kind of basically works', function(){
     assert.notEqual(Bro.brototype.doYouEven, undefined);
