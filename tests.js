@@ -170,13 +170,20 @@ describe('Bro.makeItHappen', function() {
         obj;
 
     beforeEach(function() {
-        obj = { "foo": "bar" };
+        obj = { "foo": { "bar": {} } };
     });
 
     it('should add properties to object, in a nested fashion', function() {
-        expected = { "foo": "bar", "stuff": { "and": { "things": {} } } };
+        expected = { "foo": { "bar": {} }, "stuff": { "and": { "things": {} } } };
         var bro = Bro(obj);
         bro.makeItHappen('stuff.and.things');
+        assert.deepEqual(expected, obj);
+    });
+
+    it('should add properties to object, in extending deeper nested objects', function() {
+        expected = { "foo": { "bar": { "stuff": { "and": { "things": {} } } } } };
+        var bro = Bro(obj);
+        bro.makeItHappen('foo.bar.stuff.and.things');
         assert.deepEqual(expected, obj);
     });
 });
