@@ -166,13 +166,18 @@ describe('Bro.braceYourself', function() {
 
 describe('Bro.makeItHappen', function() {
     var success,
-        expected = { "foo": "bar", "stuff": { "and": { "things": {} } } },
-        obj = {
-            "foo": "bar"
-        };
+        expected,
+        obj;
+
+    beforeEach(function() {
+        obj = { "foo": "bar" };
+    });
+
     it('should add properties to object, in a nested fashion', function() {
+        expected = { "foo": "bar", "stuff": { "and": { "things": {} } } };
         var bro = Bro(obj);
         bro.makeItHappen('stuff.and.things');
+        assert.deepEqual(expected, obj);
     });
 });
 

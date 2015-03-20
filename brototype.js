@@ -127,14 +127,16 @@
             return new Bromise(this.obj, method, arguments);
         },
         "makeItHappen": function(key) {
+            var brobj = this.obj;
             if (this.doYouEven(key) === Bro.NOWAY) {
                 var props = key.split('.');
-                var obj = this;
                 for (var i = 0; i < props.length; ++i) {
-                    if (obj[props[i]] === undefined) {
-                        obj[props[i]] = {};
+                    if (brobj[props[i]] === undefined) {
+                        brobj[props[i]] = {};
+                        brobj = brobj[props[i]];
+                    } else {
+                        brobj = brobj[props[i]];
                     }
-                    obj = obj[props[i]];
                 }
             }
         }
