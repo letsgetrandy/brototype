@@ -125,6 +125,20 @@
         "braceYourself": function(methodString) {
             var method = this.iCanHaz(methodString);
             return new Bromise(this.obj, method, arguments);
+        },
+        "makeItHappen": function(key) {
+            var brobj = this.obj;
+            if (this.doYouEven(key) === Bro.NOWAY) {
+                var props = key.split('.');
+                for (var i = 0; i < props.length; ++i) {
+                    if (brobj[props[i]] === undefined) {
+                        brobj[props[i]] = {};
+                        brobj = brobj[props[i]];
+                    } else {
+                        brobj = brobj[props[i]];
+                    }
+                }
+            }
         }
     };
 

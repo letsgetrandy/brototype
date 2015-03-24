@@ -83,6 +83,12 @@ var value = Bro(object).iCanHaz('cheezeburger');
 var values = Bro(object).iCanHaz(['cheezeburger', 'money', 'beer']);
 ```
 
+### Creating nested members
+```js
+// add properties to an object
+Bro(object).makeItHappen('cheezeburger.with.pickles');
+```
+
 ### Calling nested functions
 ```js
 Bro(object)

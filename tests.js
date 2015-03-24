@@ -164,6 +164,30 @@ describe('Bro.braceYourself', function() {
     });
 });
 
+describe('Bro.makeItHappen', function() {
+    var success,
+        expected,
+        obj;
+
+    beforeEach(function() {
+        obj = { "foo": { "bar": {} } };
+    });
+
+    it('should add properties to object, in a nested fashion', function() {
+        expected = { "foo": { "bar": {} }, "stuff": { "and": { "things": {} } } };
+        var bro = Bro(obj);
+        bro.makeItHappen('stuff.and.things');
+        assert.deepEqual(expected, obj);
+    });
+
+    it('should add properties to object, in extending deeper nested objects', function() {
+        expected = { "foo": { "bar": { "stuff": { "and": { "things": {} } } } } };
+        var bro = Bro(obj);
+        bro.makeItHappen('foo.bar.stuff.and.things');
+        assert.deepEqual(expected, obj);
+    });
+});
+
 describe('brototype alias', function(){
   it('kind of basically works', function(){
     assert.notEqual(Bro.brototype.doYouEven, undefined);
