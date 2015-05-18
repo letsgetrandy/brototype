@@ -140,28 +140,16 @@
         }
     };
 
-    try {
-        if (exports) {
-            exports.Bro = Bro;
-            return;
-        }
-    } catch(e) {}
-    try {
-        if (module) {
+    (function() {
+        if (typeof define === 'function' && typeof define.amd === 'object') {
+            define(function() {
+                return Bro;
+            });
+        } else if (typeof module !== 'undefined' && module.exports) {
             module.exports = Bro;
-            return;
+        } else if (typeof window !== 'undefined') {
+                window.Bro = Bro;
+            }
         }
-    } catch(e) {}
-    try {
-        if (require) {
-            define([], function() {return Bro;});
-            return;
-        }
-    } catch(e) {}
-    try {
-        if (window) {
-            window.Bro = Bro;
-            return;
-        }
-    } catch(e) {}
+    })();
 })();
