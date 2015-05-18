@@ -1,4 +1,4 @@
-/*global describe:false, it:false, expect:false, beforeEach:false */
+/*global describe:false, it:false, beforeEach:false */
 
 var Bro = require('./brototype').Bro;
 var assert = require('assert');
