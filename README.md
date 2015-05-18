@@ -1,4 +1,6 @@
 [![build status][travis-image]][travis-url]
+[![Code Climate](https://codeclimate.com/repos/555a0d98695680378e0034bd/badges/04a1db801508665091d9/gpa.svg)](https://codeclimate.com/repos/555a0d98695680378e0034bd/feed)
+[![bitHound Score](https://www.bithound.io/github/letsgetrandy/brototype/badges/score.svg)](https://www.bithound.io/github/letsgetrandy/brototype)
 
 brototype
 =========
