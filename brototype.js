@@ -148,8 +148,7 @@
         } else if (typeof module !== 'undefined' && module.exports) {
             module.exports = Bro;
         } else if (typeof window !== 'undefined') {
-                window.Bro = Bro;
-            }
+            window.Bro = Bro;
         }
     })();
 })();

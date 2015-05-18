@@ -1,6 +1,6 @@
 /*global describe:false, it:false, beforeEach:false */
 
-var Bro = require('./brototype').Bro;
+var Bro = require('./brototype');
 var assert = require('assert');
 
 describe('Bro.doYouEven', function() {
