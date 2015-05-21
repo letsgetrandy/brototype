@@ -1,4 +1,4 @@
-/*global exports:false, module:true, window:true, require:false, define:false*/
+/*global module:true, window:true, define:false*/
 (function() {
     'use strict';
 
