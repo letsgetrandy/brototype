@@ -1,4 +1,4 @@
-/*global exports:true, module:true, window:true, require:false, define:false*/
+/*global module:true, window:true, define:false*/
 (function() {
     'use strict';
 
@@ -68,7 +68,7 @@
             if (Array.isArray(key)) {
                 var index, value, result = [];
                 for (index in key) {
-                    if (value = this.iCanHaz(key[index])) {
+                    if ((value = this.iCanHaz(key[index]))) {
                         result.push(value);
                     }
                 }
@@ -111,11 +111,11 @@
             }
             return props;
         },
-        
+
         "hasRespect": function(prop) {
             return this.obj.hasOwnProperty(prop);
         },
-        
+
 
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);
