@@ -126,17 +126,17 @@
             var method = this.iCanHaz(methodString);
             return new Bromise(this.obj, method, arguments);
         },
-        "makeItHappen": function(key) {
+        "makeItHappen": function(key, value) {
             var brobj = this.obj;
-            if (this.doYouEven(key) === Bro.NOWAY) {
-                var props = key.split('.');
-                for (var i = 0; i < props.length; ++i) {
-                    if (brobj[props[i]] === undefined) {
-                        brobj[props[i]] = {};
-                    }
-                    brobj = brobj[props[i]];
+            var props = key.split('.');
+            for (var i = 0; i < props.length - 1; ++i) {
+                if (brobj[props[i]] === undefined) {
+                    brobj[props[i]] = {};
                 }
+                brobj = brobj[props[i]];
             }
+            // the deepest key is set to either an empty object or the value provided
+            brobj[props[props.length - 1]] = value === undefined ? {} : value;
         }
     };
 

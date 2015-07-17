@@ -180,10 +180,24 @@ describe('Bro.makeItHappen', function() {
         assert.deepEqual(expected, obj);
     });
 
-    it('should add properties to object, in extending deeper nested objects', function() {
+    it('should add properties to object, extending deeper nested objects', function() {
         expected = { "foo": { "bar": { "stuff": { "and": { "things": {} } } } } };
         var bro = Bro(obj);
         bro.makeItHappen('foo.bar.stuff.and.things');
+        assert.deepEqual(expected, obj);
+    });
+
+    it('should set existing deeply nested properties on an object', function() {
+        expected = { "foo": { "bar": 'awesome' } };
+        var bro = Bro(obj);
+        bro.makeItHappen('foo.bar', 'awesome');
+        assert.deepEqual(expected, obj);
+    });
+
+    it('should create new properties, then set them, as needed', function() {
+        expected = { "foo": { "bar": { "stuff": { "and": { "things": 'super awesome' } } } } };
+        var bro = Bro(obj);
+        bro.makeItHappen('foo.bar.stuff.and.things', 'super awesome');
         assert.deepEqual(expected, obj);
     });
 });
