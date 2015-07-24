@@ -92,6 +92,11 @@ var values = Bro(object).iCanHaz(['cheezeburger', 'money', 'beer']);
 Bro(object).makeItHappen('cheezeburger.with.pickles');
 ```
 
+```js
+// set a deeply nested property by the Bro string
+Bro(object).makeItHappen('bro.props', 'high five');  // object.bro.props = 'high five'
+```
+
 ### Calling nested functions
 ```js
 Bro(object)
