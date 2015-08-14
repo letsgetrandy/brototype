@@ -1,4 +1,17 @@
 /*global module:true, window:true, require:false, define:false*/
+
+function Bro(obj) {
+    if (this instanceof Bro) {
+        this.obj = obj;
+    } else {
+        return new Bro(obj);
+    }
+}
+
+Bro.TOTALLY = true;
+Bro.NOWAY = false;
+
+
 (function() {
     'use strict';
 
@@ -35,17 +48,6 @@
             this.hereComeTheErrors.apply(this, arguments);
         }
     };
-
-    function Bro(obj) {
-        if (this instanceof Bro) {
-            this.obj = obj;
-        } else {
-            return new Bro(obj);
-        }
-    }
-
-    Bro.TOTALLY = true;
-    Bro.NOWAY = false;
 
     Bro.brototype = Bro.prototype = {
         "isThatEvenAThing": function() {
@@ -140,15 +142,7 @@
         }
     };
 
-    (function() {
-        if (typeof define === 'function' && typeof define.amd === 'object') {
-            define(function() {
-                return Bro;
-            });
-        } else if (typeof module !== 'undefined' && module.exports) {
-            module.exports = Bro;
-        } else if (typeof window !== 'undefined') {
-            window.Bro = Bro;
-        }
-    })();
+    if (typeof(module) !== 'undefined') { module.exports = Bro; }
+    if (typeof(angular) !== 'undefined') { angular.module('brototype', []).factory('Bro', function() { return Bro; }); }
+    if (typeof(define) !== 'undefined') { define([], Bro); }
 })();
