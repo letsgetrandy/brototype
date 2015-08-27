@@ -145,6 +145,8 @@
             define(function() {
                 return Bro;
             });
+        } else if (typeof angular !== 'undefined' && typeof angular.module === 'function') {
+            angular.module('brototype', []).factory('Bro', function() { return Bro; });
         } else if (typeof module !== 'undefined' && module.exports) {
             module.exports = Bro;
         } else if (typeof window !== 'undefined') {
