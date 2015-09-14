@@ -27,6 +27,12 @@ describe('Bro.doYouEven', function() {
             bro = Bro(a);
         assert.equal(bro.doYouEven('bar'), false);
     });
+
+    it('should fail gracefully if the object is not defined', function() {
+        var a = undefined,
+            bro = Bro(a);
+        assert.equal(bro.doYouEven('foo.bar'), false);
+    });
 });
 
 describe('Bro.iCanHaz', function() {
