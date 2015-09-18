@@ -68,18 +68,19 @@
             if (Array.isArray(key)) {
                 var index, value, result = [];
                 for (index in key) {
-                    if (value = this.iCanHaz(key[index])) {
-                        result.push(value);
-                    }
+                    value = this.iCanHaz(key[index]);
+                    result.push(value);
                 }
                 return result;
             }
             var props = key.split('.'),
                 item = this.obj;
-            for (var i = 0; i < props.length; i++) {
-                item = item[props[i]];
-                if (Bro(item).isThatEvenAThing() === Bro.NOWAY) {
-                    return item;
+            if (typeof item !== "undefined") {
+                for (var i = 0; i < props.length; i++) {
+                    item = item[props[i]];
+                    if (Bro(item).isThatEvenAThing() === Bro.NOWAY) {
+                        return item;
+                    }
                 }
             }
             return item;
