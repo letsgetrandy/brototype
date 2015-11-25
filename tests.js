@@ -22,6 +22,13 @@ describe('Bro.doYouEven', function() {
         assert.equal(bro.doYouEven('foo.bar'), true);
     });
 
+    it('should return true for more than one nested property', function() {
+        var a = {b: {c: 'foo'},d: {e: 'bar'}},
+            bro = Bro(a);
+        assert.equal(bro.doYouEven(['b.c', 'd.x']), false);
+        assert.equal(bro.doYouEven(['b.c', 'd.e']), true);
+    });
+
     it('should return false for undefined properties', function() {
         var a = {foo: 'bar'},
             bro = Bro(a);
