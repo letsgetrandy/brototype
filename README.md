@@ -69,6 +69,15 @@ if(Bro(object).doYouEven('lift') === Bro.TOTALLY) {
 }
 ```
 
+Or check for multiple nested members by passing an array of paths
+```js
+if (Bro(object)
+    .doYouEven(['property.one', 'property.two']) {
+    // returns true if all referenced properties exist
+    console.log(app.property.one, app.property.two);
+})
+```
+
 Or, just use a callback...
 ```js
 Bro(object)
