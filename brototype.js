@@ -54,27 +54,19 @@
 
         "doYouEven": function(key, options) {
             var optionsBro = Bro(options || {});
-            if (key instanceof Array) {
-                var self = this;
-                if (key.every(function(k) {
-                        var bro = self.iCanHaz(k);
-                        return (Bro(bro).isThatEvenAThing() === Bro.TOTALLY);
-                    })) {
-                    optionsBro.iDontAlways('forSure').butWhenIdo();
-                    return Bro.TOTALLY;
-                } else {
-                    optionsBro.iDontAlways('sorryBro').butWhenIdo();
-                    return Bro.NOWAY;
-                }
+            if (!(key instanceof Array)) {
+                key = [key];
+            }
+            var self = this;
+            if (key.every(function(k) {
+                    var bro = self.iCanHaz(k);
+                    return (Bro(bro).isThatEvenAThing() === Bro.TOTALLY);
+                })) {
+                optionsBro.iDontAlways('forSure').butWhenIdo();
+                return Bro.TOTALLY;
             } else {
-                var bro = this.iCanHaz(key);
-                if (Bro(bro).isThatEvenAThing() === Bro.TOTALLY) {
-                    optionsBro.iDontAlways('forSure').butWhenIdo();
-                    return Bro.TOTALLY;
-                } else {
-                    optionsBro.iDontAlways('sorryBro').butWhenIdo();
-                    return Bro.NOWAY;
-                }
+                optionsBro.iDontAlways('sorryBro').butWhenIdo();
+                return Bro.NOWAY;
             }
         },
 

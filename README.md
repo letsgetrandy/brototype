@@ -69,12 +69,12 @@ if(Bro(object).doYouEven('lift') === Bro.TOTALLY) {
 }
 ```
 
-Or check for multiple nested members by passing an array of paths
+Or, ensure that multiple nested members exist by passing an array of paths
 ```js
 if (Bro(object)
     .doYouEven(['property.one', 'property.two']) {
     // returns true if all referenced properties exist
-    console.log(app.property.one, app.property.two);
+    console.log(object.property.one, object.property.two);
 })
 ```
 
@@ -185,7 +185,7 @@ before submitting your pull request.
 
 ## Bro-tie
 For the brofessional. Want to use Brototype.js but it's too bro for your work
-environment? Just give it the [Bro-tie](http://brotie.jdauriemma.com) treatment
+environment? Just give it the [Bro-tie](http://pepperthecat.github.io/brotie/) treatment
 so you can bro down at the office!
 Alias some or all of the names to make your boss happy.
 
