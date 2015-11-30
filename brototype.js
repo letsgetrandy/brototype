@@ -53,9 +53,15 @@
         },
 
         "doYouEven": function(key, options) {
-            var optionsBro = Bro(options || {}),
-                bro = this.iCanHaz(key);
-            if (Bro(bro).isThatEvenAThing() === Bro.TOTALLY) {
+            var optionsBro = Bro(options || {});
+            if (!(key instanceof Array)) {
+                key = [key];
+            }
+            var self = this;
+            if (key.every(function(k) {
+                    var bro = self.iCanHaz(k);
+                    return (Bro(bro).isThatEvenAThing() === Bro.TOTALLY);
+                })) {
                 optionsBro.iDontAlways('forSure').butWhenIdo();
                 return Bro.TOTALLY;
             } else {
