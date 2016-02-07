@@ -40,6 +40,22 @@ describe('Bro.doYouEven', function() {
             bro = Bro(a);
         assert.equal(bro.doYouEven('foo.bar'), false);
     });
+
+    it('should pass a simple callback function', function() {
+        var a = {foo: 'bar'},
+            bro = Bro(a);
+        bro.doYouEven('foo', function(prop) {
+            assert.equal(prop, 'bar');
+        });
+    });
+
+    it('should pass callback function to more than one nested property', function() {
+        var a = {foo: 'bar', a: {b: 'c'}},
+            bro = Bro(a);
+        bro.doYouEven(['foo', 'b.c'], function(prop, key) {
+            assert.equal(prop, a[key]);
+        });
+    });
 });
 
 describe('Bro.iCanHaz', function() {
