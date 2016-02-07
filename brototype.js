@@ -52,7 +52,7 @@
             return this.obj !== void 0;
         },
 
-        "doYouEven": function(key, options) {
+        "doYouEven": function(key, callback, options) {
             var optionsBro = Bro(options || {});
             if (!(key instanceof Array)) {
                 key = [key];
@@ -63,6 +63,14 @@
                     return (Bro(bro).isThatEvenAThing() === Bro.TOTALLY);
                 })) {
                 optionsBro.iDontAlways('forSure').butWhenIdo();
+
+                // Perform callback function
+                if (callback) {
+                    for (var i = 0; i < key.length; i++) {
+                        callback(self.obj[key[i]], key[i]);
+                    }
+                }
+                
                 return Bro.TOTALLY;
             } else {
                 optionsBro.iDontAlways('sorryBro').butWhenIdo();
