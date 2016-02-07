@@ -53,6 +53,9 @@
         },
 
         "doYouEven": function(key, callback, options) {
+            if (!(callback instanceof Function)) {
+                options = callback;
+            }
             var optionsBro = Bro(options || {});
             if (!(key instanceof Array)) {
                 key = [key];
