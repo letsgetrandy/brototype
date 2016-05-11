@@ -189,7 +189,7 @@ environment? Just give it the [Bro-tie](http://pepperthecat.github.io/brotie/) t
 so you can bro down at the office!
 Alias some or all of the names to make your boss happy.
 
-## Do you use Brototype?
+## Do you even Brototype?
 Are you using Brototype in the wild?
 If so, [tell the world](https://github.com/letsgetrandy/brototype/issues/10)!
 
