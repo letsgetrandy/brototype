@@ -45,7 +45,7 @@
     }
 
     Bro.TOTALLY = true;
-    Bro.NOWAY = false;
+    Bro.NAW = false;
 
     Bro.brototype = Bro.prototype = {
         "isThatEvenAThing": function() {
@@ -73,11 +73,11 @@
                         callback(self.obj[key[i]], key[i]);
                     }
                 }
-                
+
                 return Bro.TOTALLY;
             } else {
                 optionsBro.iDontAlways('sorryBro').butWhenIdo();
-                return Bro.NOWAY;
+                return Bro.NAW;
             }
         },
 
@@ -95,7 +95,7 @@
             if (typeof item !== "undefined") {
                 for (var i = 0; i < props.length; i++) {
                     item = item[props[i]];
-                    if (Bro(item).isThatEvenAThing() === Bro.NOWAY) {
+                    if (Bro(item).isThatEvenAThing() === Bro.NAW) {
                         return item;
                     }
                 }
@@ -129,11 +129,11 @@
             }
             return props;
         },
-        
+
         "hasRespect": function(prop) {
             return this.obj.hasOwnProperty(prop);
         },
-        
+
 
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);

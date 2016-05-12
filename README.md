@@ -127,7 +127,7 @@ Bro(object)
 ### Bro-oleans
 ```js
 Bro.TOTALLY // true;
-Bro.NOWAY   // false;
+Bro.NAW     // false;
 ```
 
 ### Check for undefined
