@@ -163,12 +163,14 @@
             define(function() {
                 return Bro;
             });
-        } else if (typeof(angular) !== 'undefined') {
-            angular.module('brototype', []).factory('Bro', function() { return Bro; });
         } else if (typeof module !== 'undefined' && module.exports) {
             module.exports = Bro;
         } else if (typeof window !== 'undefined') {
             window.Bro = Bro;
+        }
+
+        if (typeof(angular) !== 'undefined') {
+            angular.module('brototype', []).factory('Bro', function() { return Bro; });
         }
     })();
 })();
