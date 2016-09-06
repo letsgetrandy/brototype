@@ -73,7 +73,7 @@
                         callback(self.obj[key[i]], key[i]);
                     }
                 }
-                
+
                 return Bro.TOTALLY;
             } else {
                 optionsBro.iDontAlways('sorryBro').butWhenIdo();
@@ -92,12 +92,9 @@
             }
             var props = key.split('.'),
                 item = this.obj;
-            if (typeof item !== "undefined") {
-                for (var i = 0; i < props.length; i++) {
-                    item = item[props[i]];
-                    if (Bro(item).isThatEvenAThing() === Bro.NOWAY) {
-                        return item;
-                    }
+            for (var i = 0; i < props.length; i++) {
+                if (typeof item === "undefined" || item === null || Bro(item = item[props[i]]).isThatEvenAThing() === Bro.NOWAY) {
+                    return undefined;
                 }
             }
             return item;
@@ -129,11 +126,11 @@
             }
             return props;
         },
-        
+
         "hasRespect": function(prop) {
             return this.obj.hasOwnProperty(prop);
         },
-        
+
 
         "iDontAlways": function(methodString) {
             var method = this.iCanHaz(methodString);

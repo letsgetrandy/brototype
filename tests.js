@@ -41,6 +41,18 @@ describe('Bro.doYouEven', function() {
         assert.equal(bro.doYouEven('foo.bar'), false);
     });
 
+    it('should fail gracefully if the object is null', function() {
+        var a = null,
+            bro = Bro(a);
+        assert.equal(bro.doYouEven('foo.bar'), false);
+    });
+
+    it('should fail gracefully if a traversed subproperty is null', function(){
+        var a = {test: null},
+            bro = Bro(a);
+        assert.equal(bro.doYouEven('test.0.test'), false);
+    });
+
     it('should pass a simple callback function', function() {
         var a = {foo: 'bar'},
             bro = Bro(a);
