@@ -33,7 +33,7 @@ describe('Bro.doYouEven', function() {
         var a = {foo: 'bar'},
             bro = Bro(a);
         assert.equal(bro.doYouEven('bar'), false);
-    });
+    });1
 
     it('should fail gracefully if the object is not defined', function() {
         var a = undefined,
@@ -48,7 +48,7 @@ describe('Bro.doYouEven', function() {
     });
 
     it('should fail gracefully if a traversed subproperty is null', function(){
-        var a = {test: undefined},
+        var a = {test: null},
             bro = Bro(a);
         assert.equal(bro.doYouEven('test.0.test'), false);
     });
