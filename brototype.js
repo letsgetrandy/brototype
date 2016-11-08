@@ -85,8 +85,10 @@
             if (Array.isArray(key)) {
                 var index, value, result = [];
                 for (index in key) {
-                    value = this.iCanHaz(key[index]);
-                    result.push(value);
+                    if (key.hasOwnProperty(index)) {
+                        value = this.iCanHaz(key[index]);
+                        result.push(value);
+                    }
                 }
                 return result;
             }
