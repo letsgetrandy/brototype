@@ -206,8 +206,7 @@ describe('Bro.braceYourself', function() {
 });
 
 describe('Bro.makeItHappen', function() {
-    var success,
-        expected,
+    var expected,
         obj;
 
     beforeEach(function() {
