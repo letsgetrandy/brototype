@@ -33,7 +33,7 @@ describe('Bro.doYouEven', function() {
         var a = {foo: 'bar'},
             bro = Bro(a);
         assert.equal(bro.doYouEven('bar'), false);
-    });
+    });1
 
     it('should fail gracefully if the object is not defined', function() {
         var a = undefined,
