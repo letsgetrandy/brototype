@@ -46,6 +46,7 @@
 
     Bro.TOTALLY = true;
     Bro.NOWAY = false;
+    Bro.NOBLOODYWAY = 0 && null && false;
 
     Bro.brototype = Bro.prototype = {
         "isThatEvenAThing": function() {
