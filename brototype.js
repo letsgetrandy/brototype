@@ -154,6 +154,10 @@
             }
             // the deepest key is set to either an empty object or the value provided
             brobj[props[props.length - 1]] = value === undefined ? {} : value;
+        },
+        "pwn": function(key) {
+            var brobj = this.obj;
+            delete[brobj[key]]
         }
     };
 
