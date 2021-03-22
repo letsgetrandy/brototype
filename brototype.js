@@ -1,5 +1,5 @@
 /*global module:true, window:true, require:false, define:false*/
-(function() {
+(function () {
     'use strict';
 
     // Bromise... it's stronger than a Promise
@@ -10,21 +10,21 @@
     }
 
     Bromise.brototype = Bromise.prototype = {
-        "butWhenIdo": function(callback, context) {
+        "butWhenIdo": function (callback, context) {
             if (this.method instanceof Function) {
                 var returnValue = this.method.apply(this.object, this.args);
                 if (returnValue) {
-                    (callback || function(){}).call(context || this.object, returnValue);
+                    (callback || function () { }).call(context || this.object, returnValue);
                 }
             }
             return context;
         },
 
-        "hereComeTheErrors": function(callback) {
+        "hereComeTheErrors": function (callback) {
             if (this.method instanceof Function) {
                 try {
                     this.method.apply(this.object, this.args);
-                } catch(e) {
+                } catch (e) {
                     callback(e);
                 }
             } else {
@@ -48,11 +48,11 @@
     Bro.NOWAY = false;
 
     Bro.brototype = Bro.prototype = {
-        "isThatEvenAThing": function() {
+        "isThatEvenAThing": function () {
             return this.obj !== void 0;
         },
 
-        "doYouEven": function(key, callback, options) {
+        "doYouEven": function (key, callback, options) {
             if (!(callback instanceof Function)) {
                 options = callback;
             }
@@ -61,10 +61,10 @@
                 key = [key];
             }
             var self = this;
-            if (key.every(function(k) {
-                    var bro = self.iCanHaz(k);
-                    return (Bro(bro).isThatEvenAThing() === Bro.TOTALLY);
-                })) {
+            if (key.every(function (k) {
+                var bro = self.iCanHaz(k);
+                return (Bro(bro).isThatEvenAThing() === Bro.TOTALLY);
+            })) {
                 optionsBro.iDontAlways('forSure').butWhenIdo();
 
                 // Perform callback function
@@ -81,7 +81,7 @@
             }
         },
 
-        "iCanHaz": function(key) {
+        "iCanHaz": function (key) {
             if (Array.isArray(key)) {
                 var index, value, result = [];
                 for (index in key) {
@@ -102,7 +102,7 @@
             return item;
         },
 
-        "comeAtMe": function(brobject) {
+        "comeAtMe": function (brobject) {
             var i, prop,
                 bro = Bro(brobject),
                 keys = bro.giveMeProps(),
@@ -115,7 +115,7 @@
             }
         },
 
-        "giveMeProps": function() {
+        "giveMeProps": function () {
             var key, props = [];
             if (Object.keys) {
                 props = Object.keys(this.obj);
@@ -129,21 +129,21 @@
             return props;
         },
 
-        "hasRespect": function(prop) {
+        "hasRespect": function (prop) {
             return this.obj.hasOwnProperty(prop);
         },
 
 
-        "iDontAlways": function(methodString) {
+        "iDontAlways": function (methodString) {
             var method = this.iCanHaz(methodString);
             return new Bromise(this.obj, method, arguments);
         },
 
-        "braceYourself": function(methodString) {
+        "braceYourself": function (methodString) {
             var method = this.iCanHaz(methodString);
             return new Bromise(this.obj, method, arguments);
         },
-        "makeItHappen": function(key, value) {
+        "makeItHappen": function (key, value) {
             var brobj = this.obj;
             var props = key.split('.');
             for (var i = 0; i < props.length - 1; ++i) {
@@ -154,12 +154,24 @@
             }
             // the deepest key is set to either an empty object or the value provided
             brobj[props[props.length - 1]] = value === undefined ? {} : value;
+        },
+        "pwn": function (path) {
+            const brobj = this.obj,
+                keys = path.split('.');
+
+            keys.reduce(function(acc, key, index) {
+                if (index === keys.length - 1) {
+                    delete acc[key];
+                    return true;
+                }
+                return acc[key];
+            }, brobj);
         }
     };
 
-    (function() {
+    (function () {
         if (typeof define === 'function' && typeof define.amd === 'object') {
-            define(function() {
+            define(function () {
                 return Bro;
             });
         } else if (typeof module !== 'undefined' && module.exports) {
@@ -168,8 +180,8 @@
             window.Bro = Bro;
         }
 
-        if (typeof(angular) !== 'undefined') {
-            angular.module('brototype', []).factory('Bro', function() { return Bro; });
+        if (typeof (angular) !== 'undefined') {
+            angular.module('brototype', []).factory('Bro', function () { return Bro; });
         }
     })();
 })();
