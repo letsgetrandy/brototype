@@ -16,7 +16,6 @@
     "url": "https://github.com/letsgetrandy/brototype/issues"
   },
   "homepage": "http://brototypejs.com",
-  "dependencies": {},
   "devDependencies": {
     "mocha": "~2.2"
   }

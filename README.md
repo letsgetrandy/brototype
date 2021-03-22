@@ -153,6 +153,15 @@ Bro(obj1).comeAtMe(obj2);
 // now obj1.foo == 'bar' and obj1.yes == 'no'
 ```
 
+### Deleting a key from an object
+```js
+var lies = { "this": { "is": { "uncool": "yes" } } };
+// Not uncool!!
+var bro = Bro(lies);
+bro.pwn('this.is.uncool');
+// => { "this": { "is": {} } }
+```
+
 ### Extending Brototype!
 Yes, extend me, Bro!
 

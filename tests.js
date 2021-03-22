@@ -242,6 +242,16 @@ describe('Bro.makeItHappen', function() {
     });
 });
 
+describe('Bro.pwn', function () {
+    it("should delete a key", function () {
+        const firstObj = { "this": { "is": { "cool": "not yet" } } };
+        const expected = { "this": { "is": {} } };
+        const bro = Bro(firstObj);
+        bro.pwn('this.is.cool');
+        assert.deepEqual(firstObj, expected);
+    });
+});
+
 describe('brototype alias', function(){
   it('kind of basically works', function(){
     assert.notEqual(Bro.brototype.doYouEven, undefined);
